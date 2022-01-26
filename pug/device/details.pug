@@ -1,0 +1,48 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            - let addNote = "/device/notes?second_id=" + device[0];
+            - let removeNote = "/device/" + device[0] + "/removeNotes";
+            - let addToGroup = "/device/group/add?device_id=" + device[0];
+            - let removeFromGroup = "/device/" + device[0] + "/group/remove";
+            - let addToMotive = "/device/motive/add?device_id=" + device[0];
+            - let removeFromMotive = "/device/" + device[0] + "/motive/remove";
+            - let addConfig = "/device/config/add?device_id=" + device[0];
+            p
+                span ID:
+                .
+                    #{device[0]}
+            p
+                span Mac ID:
+                .
+                    #{device[1]}
+
+            if device[2] === null
+                p Lack od note
+                    a(href=`${addNote}`) Add note
+            else
+                p #{device[2]}
+                    a(href=`${removeNote}`) Remove note
+
+            if device[3] === null
+                p Lack of group
+                    a(href=`${addToGroup}`) Add to group
+            else
+                p #{device[3]}
+                    a(href=`${removeFromGroup}`) Remove from group
+
+            if device[4] === null
+                p Lack of motive
+                    a(href=`${addToMotive}`) Add to motive
+            else
+                p #{device[4]}
+                    a(href=`${removeFromMotive}`) Remove from motive
+            p Config Id:
+                span #{device[5]}
+                a(href=`${addConfig}`) Manage config

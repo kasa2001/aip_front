@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "outDir": "./dist",
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "noEmitOnError": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "es6",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./src/**/*",
+    ]
+}

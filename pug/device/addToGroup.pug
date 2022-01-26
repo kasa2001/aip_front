@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/device/group/add" method="POST")
+                label Content
+                    select(name="group_id")
+                        each group in groups
+                            option(value=group[0]) #{group[1]}
+                label Device
+                    select(name="device_id")
+                        each device in devices
+                            if device[0] == query
+                                option(value=device[0], selected=true) #{device[1]}
+                            else
+                                option(value=device[0]) #{device[1]}
+                input(type="submit")

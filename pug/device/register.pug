@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/registerDevice" method="POST")
+                label Mac Address
+                    input(name="mac_id")
+                input(type="submit")

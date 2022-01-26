@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/registerGroup" method="POST")
+                label Group name
+                    input(name="name")
+                input(type="submit")

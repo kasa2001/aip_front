@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            - let addNote = "/group/notes?second_id=" + group[0];
+            - let removeNote = "/group/" + group[0] + "/removeNotes";
+            - let addConfig = "/group/config/add?device_id=" + group[0];
+            p
+                span ID:
+                .
+                    #{group[0]}
+            p
+                span Group name:
+                .
+                    #{group[1]}
+            if group[2] === null
+                p Lack od note
+                    a(href=`${addNote}`) Add note
+            else
+                p #{group[2]}
+                    a(href=`${removeNote}`) Remove note
+            p Config Id:
+                span #{group[3]}
+                a(href=`${addConfig}`) Override config

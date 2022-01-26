@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/group/notes" method="POST")
+                label Content
+                    input(name="content")
+                label Group
+                    select(name="second_id")
+                        each group in groups
+                            if group[0] == query
+                                option(value=group[0], selected= true) #{group[1]}
+                            else
+                                option(value=group[0]) #{group[1]}
+
+                input(type="submit")

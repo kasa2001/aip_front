@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/motive/config/add" method="POST")
+                label Content
+                    textarea(name="config")
+                label Motive
+                    select(name="device_id")
+                        each motive in devices
+                            if motive[0] == query
+                                option(value=motive[0], selected=true) #{motive[1]}
+                            else
+                                option(value=motive[0]) #{motive[1]}
+                input(type="submit")

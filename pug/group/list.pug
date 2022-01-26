@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+
+        each val in devices
+            - let details = "/group/" + val[0];
+            - let unregisterItem = "/group/remove/" + val[0];
+            div
+                p
+                    span Id:
+                    span= val[0]
+                    span Name:
+                    span= val[1]
+                    a(href=`${details}`) Details
+                    a(href=`${unregisterItem}`) Remove
+
+        else
+            div
+                p Lack of group

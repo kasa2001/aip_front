@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            - let addConfig = "/motive/config/add?device_id=" + motive[0];
+            p
+                span ID:
+                .
+                    #{motive[0]}
+            p
+                span Motive name:
+                .
+                    #{motive[1]}
+
+            p Config Id:
+                span #{motive[2]}
+                a(href=`${addConfig}`) Override config

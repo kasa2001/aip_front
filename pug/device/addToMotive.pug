@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Index
+        style
+            include ../../css/style.css
+    body
+        include ../layout/header.pug
+        div
+            form(action="/device/motive/add" method="POST")
+                label Content
+                    select(name="motive_id")
+                        each motive in motives
+                            if motive[0] == motive_id
+                                option(value=motive[0], selected=true) #{motive[1]}
+                            else
+                                option(value=motive[0]) #{motive[1]}
+                label Device
+                    select(name="device_id")
+                        each device in devices
+                            if device[0] == device_id
+                                option(value=device[0], selected=true) #{device[1]}
+                            else
+                                option(value=device[0]) #{device[1]}
+                input(type="submit")
